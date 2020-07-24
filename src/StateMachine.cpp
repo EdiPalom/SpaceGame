@@ -4,7 +4,9 @@
 
 StateMachine::StateMachine()
 {
-
+    process_event();
+    // state = State::MENU;
+    prev_state = state;
 }
 
 void StateMachine::process_event()
@@ -14,17 +16,59 @@ void StateMachine::process_event()
         default: break;
 
         case State::MENU:
-            std::cout << "Menu" << std::endl;
-                 // state = State::TRANSITION;
+            World::list.push_back(std::make_shared<Entity>("Menu"));
         break;
 
-        case State::TRANSITION:
-            std::cout << "Transition" << std::endl;
-                // state = State::RUNNING;
+        case State::FADE_IN_STATE:
+            World::list.push_back(std::make_shared<FadeIn>(1000));
+        break;
+
+        case State::FADE_OUT_STATE:
+            World::list.push_back(std::make_shared<Entity>("Fade Out"));
         break;
 
         case State::RUNNING:
-            std::cout << "Running" << std::endl;
+                World::list.push_back(std::make_shared<Entity>("Running"));
         break;
     }
+}
+
+void StateMachine::update_state(int new_state)
+{
+    keep_state();
+
+    switch(new_state) 
+    {
+        default: break;
+
+        case FADE_IN_EVENT:
+                state = State::FADE_IN_STATE;
+            break;
+
+        case FADE_OUT_EVENT:
+                state = State::FADE_OUT_STATE;
+            break;
+
+        case CHANGE_SCENE:
+
+            World::free_memory();
+
+            if (prev_state == State::MENU)
+            {
+                state = State::RUNNING;
+            }
+            else
+            {
+                state = State::MENU;
+            }
+        break;
+    }
+
+    process_event();
+}
+
+void StateMachine::keep_state()
+{
+    if(state == State::MENU || state == State::RUNNING)
+        prev_state = state;
 }

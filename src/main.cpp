@@ -43,8 +43,14 @@ static void process_events(SDL_Event* event)
             case SDL_KEYDOWN:
                 switch(event->key.keysym.sym)
                 {
+                    default: break;
+
                     case SDLK_ESCAPE:
                         exit(1);
+                        break;
+
+                    case SDLK_RETURN:
+                        EventManager::set_event(FADE_IN_EVENT);
                         break;
                 }
         }
@@ -75,6 +81,8 @@ int main()
         ups_lag += delta_time;
 
         process_events(&event);
+
+        // EventManager::print();
 
         if(ups_lag >= MS_PER_SECOND)
         {
