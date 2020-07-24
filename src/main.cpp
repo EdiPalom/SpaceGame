@@ -9,6 +9,16 @@
 
 // #include <Keyboard.hpp>
 
+static double last_time = SDL_GetTicks();
+static unsigned int ups = 0;
+static unsigned int fps = 0;
+static double current_time = 0;
+static double delta_time = 0;
+static double ups_lag = 0;
+static double counter_time = 0;
+static const double FPS = 60;
+static const double MS_PER_SECOND = (1/FPS) * 1000;
+
 static void must_init(bool test, std::string description)
 {
     if(test) return;
@@ -58,13 +68,34 @@ int main()
 
     while(true)
     {
+        current_time = SDL_GetTicks();
+        delta_time = current_time - last_time;
+        last_time = current_time;
+        counter_time += delta_time;
+        ups_lag += delta_time;
+
         process_events(&event);
 
-        renderer.clear();
-            
-        game.draw();
+        if(ups_lag >= MS_PER_SECOND)
+        {
+            game.update(delta_time);
+            ++ups;
 
+            ups_lag -= MS_PER_SECOND;
+        }
+        
+        renderer.clear();
+        game.draw();
+        ++fps;
         renderer.present();
+
+        if(counter_time >= 1000)
+        {
+            std::cout << "APS: " << ups << " FPS: " << fps << std::endl;
+            counter_time -= 1000;
+            ups = 0;
+            fps = 0;
+        }
     }
 
     return 0;

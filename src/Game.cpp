@@ -13,7 +13,7 @@ bool Game::initialize()
 
 void Game::update(double dt)
 {
-
+    state_machine.process_event();
 }
 
 void Game::draw()

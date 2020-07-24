@@ -2,6 +2,8 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <StateMachine.hpp>
+
 class Game
 {
     public:
@@ -12,6 +14,7 @@ class Game
         void draw();
 
     private:
+        StateMachine state_machine;
 };
 
 #endif
