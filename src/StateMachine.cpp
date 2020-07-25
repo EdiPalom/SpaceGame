@@ -15,8 +15,12 @@ void StateMachine::process_event()
     {
         default: break;
 
+        case State::INTRO:
+            World::list.push_back(std::make_shared<FadeIn>(10));
+            break;
+
         case State::MENU:
-            World::list.push_back(std::make_shared<Entity>("Menu"));
+            World::list.push_back(std::make_shared<Entity>(ResourceManager::get_texture("menu_play")));
         break;
 
         case State::FADE_IN_STATE:
@@ -28,7 +32,7 @@ void StateMachine::process_event()
         break;
 
         case State::RUNNING:
-                World::list.push_back(std::make_shared<Entity>("Running"));
+                World::list.push_back(std::make_shared<Entity>(ResourceManager::get_texture("menu_exit")));
         break;
     }
 }

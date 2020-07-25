@@ -13,7 +13,7 @@ class Game
 
         bool initialize();
         void update(double dt);
-        void draw();
+        void draw(Renderer *);
 
     private:
         StateMachine state_machine;

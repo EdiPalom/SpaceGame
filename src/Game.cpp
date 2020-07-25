@@ -1,5 +1,6 @@
 
 #include <Game.hpp>
+#include <Globals.h>
 
 Game::Game()
 {
@@ -42,7 +43,17 @@ void Game::update(double dt)
     }
 }
 
-void Game::draw()
+void Game::draw(Renderer *renderer)
 {
+    for(long unsigned int i = 0; i < World::list.size(); ++i)
+    {
+        if(!World::list[i]) continue;
+        World::list[i]->draw(renderer);
+    }
+    //
+    // SDL_Rect srcrect = {0,0,WINDOW_WIDTH,WINDOW_HEIGHT};
+    // SDL_Rect dstrect = {0,0,WINDOW_WIDTH,WINDOW_HEIGHT};
 
+    // renderer->draw(ResourceManager::get_texture("menu"),&srcrect,&dstrect);
+    // renderer->draw(ResourceManager::get_texture("menu"),NULL,&dstrect);
 }

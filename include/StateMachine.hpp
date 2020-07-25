@@ -6,7 +6,9 @@
 
 #include <World.hpp>
 #include <FadeIn.hpp>
+#include <ResourceManager.hpp>
 #include <GameEvents.h>
+
 // #include <GameStates.h>
 
 
@@ -19,8 +21,8 @@ class StateMachine
         StateMachine();
 
         enum class State : char {
-            MENU, FADE_IN_STATE, FADE_OUT_STATE, RUNNING
-        } state = State::MENU;
+            INTRO, MENU, FADE_IN_STATE, FADE_OUT_STATE, RUNNING
+        } state = State::INTRO;
 
         void process_event();
         void update_state(int new_state);

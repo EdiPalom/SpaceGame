@@ -1,4 +1,4 @@
-#define SDL_MAIN_HANDLED
+// #define SDL_MAIN_HANDLED
 
 #include <string>
 #include <iostream>
@@ -6,6 +6,7 @@
 #include <Game.hpp>
 #include <Window.hpp>
 #include <Renderer.hpp>
+#include <ResourceManager.hpp>
 
 // #include <Keyboard.hpp>
 
@@ -18,12 +19,20 @@ static double ups_lag = 0;
 static double counter_time = 0;
 static const double FPS = 60;
 static const double MS_PER_SECOND = (1/FPS) * 1000;
+static bool active = true;
 
 static void must_init(bool test, std::string description)
 {
     if(test) return;
     std::cout << "couldn't initialize " << description << std::endl;
     exit(1);
+}
+
+static void free_resources()
+{
+    World::free_memory();
+    ResourceManager::free_memory();
+    SDL_Quit();
 }
 
 static void process_events(SDL_Event* event)
@@ -36,7 +45,7 @@ static void process_events(SDL_Event* event)
 
             case SDL_WINDOWEVENT_CLOSE:
             {
-                exit(1);
+                active = false;
             }
             break;
 
@@ -46,7 +55,7 @@ static void process_events(SDL_Event* event)
                     default: break;
 
                     case SDLK_ESCAPE:
-                        exit(1);
+                        active = false;
                         break;
 
                     case SDLK_RETURN:
@@ -55,6 +64,19 @@ static void process_events(SDL_Event* event)
                 }
         }
     }
+}
+
+
+
+static bool load_resources(Renderer* renderer)
+{
+    bool success = true;
+
+    success = ResourceManager::load_texture("assets/images/menu.png","menu", true, renderer->created);
+    success = ResourceManager::load_texture("assets/images/menu_play.png","menu_play", true, renderer->created);
+    success = ResourceManager::load_texture("assets/images/menu_exit.png","menu_exit", true, renderer->created);
+
+    return success;
 }
 
 int main()
@@ -70,9 +92,11 @@ int main()
     Game game;
     must_init(game.initialize(), "Game App");
 
+    must_init(load_resources(&renderer),"Loading Resources");
+
     SDL_Event event;
 
-    while(true)
+    while(active)
     {
         current_time = SDL_GetTicks();
         delta_time = current_time - last_time;
@@ -93,7 +117,7 @@ int main()
         }
         
         renderer.clear();
-        game.draw();
+        game.draw(&renderer);
         ++fps;
         renderer.present();
 
@@ -105,6 +129,8 @@ int main()
             fps = 0;
         }
     }
+
+    free_resources();
 
     return 0;
 }

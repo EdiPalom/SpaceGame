@@ -13,8 +13,10 @@ class Renderer
 
         void clear();
         void present();
+        void draw(SDL_Texture* texture, const SDL_Rect* srcrect, const SDL_Rect* dstrect);
 
         SDL_Renderer *created;
+        
 
     private:
 
