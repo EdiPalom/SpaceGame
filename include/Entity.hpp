@@ -23,6 +23,7 @@ class Entity
 
         void set_position(sf::Vector2f position){this->position = position;}
         void set_direction(sf::Vector2f direction){this->direction = direction;}
+        void set_atlas_position(sf::Vector2i position){this->sprite.x = position.x; this->sprite.y = position.y;}
         
         sf::Vector2f get_position(){return this->position;}
         sf::Vector2f get_direction(){return this->direction;}

@@ -11,6 +11,7 @@
 
 #include <Player.hpp>
 #include <PlayerInputComponent.hpp>
+#include <PlayerAnimation.hpp>
 
 class Running:public Entity
 {
