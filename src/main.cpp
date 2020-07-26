@@ -90,6 +90,7 @@ static bool load_resources(Renderer* renderer)
     success = ResourceManager::load_texture("assets/images/stars_medium.png","back_medium", true, renderer->created);
     success = ResourceManager::load_texture("assets/images/stars_big.png","back_big", true, renderer->created);
     success = ResourceManager::load_texture("assets/images/red_ship.png","player", true, renderer->created);
+    success = ResourceManager::load_texture("assets/images/sheet3.png","sheet", true, renderer->created);
 
     return success;
 }

@@ -18,10 +18,14 @@ class ActorEntity: public Entity
 
         void add_component(const std::shared_ptr<EntityComponent>&);
 
+    protected:
+
 
     private:
 
         std::map<std::string, std::shared_ptr<EntityComponent>> components;
+
+
 
 };
 

@@ -13,6 +13,8 @@
 #include <PlayerInputComponent.hpp>
 #include <PlayerAnimation.hpp>
 
+#include <EnemyFactory.hpp>
+
 class Running:public Entity
 {
     public:

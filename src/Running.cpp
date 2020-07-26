@@ -13,6 +13,8 @@ Running::Running():Entity(ResourceManager::get_texture("background")->get_ptr())
     player->add_component(std::make_shared<PlayerAnimation>());
     // player->add_component(std::make_shared<Shoot>(player.get(),4,70));
     World::list.push_back(player);
+
+    EnemyFactory::create(sf::Vector2f(0,50), 5);
 }
 
 void Running::update_current(double dt)

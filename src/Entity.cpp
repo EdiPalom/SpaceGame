@@ -4,12 +4,12 @@
 // #include <ResourceManager.hpp>
 #include <Globals.h>
 
-Entity::Entity(std::string name):visible(false)
+Entity::Entity(std::string name):visible(false),b_destroy(false)
 {
    this->name = name;
 }
 
-Entity::Entity(SDL_Texture *texture, sf::Vector2i size, sf::Vector2f position, sf::Vector2f direction):visible(true)
+Entity::Entity(SDL_Texture *texture, sf::Vector2i size, sf::Vector2f position, sf::Vector2f direction):visible(true),b_destroy(false)
 {
     this->sprite.x = 0;
     this->sprite.y = 0;
