@@ -5,7 +5,7 @@
 
 enum EVENT
 {
-    CLOSE,
+    CLOSE = 1,
     CHANGE_SCENE,
     FADE_IN_EVENT,
     FADE_OUT_EVENT,

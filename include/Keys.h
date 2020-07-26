@@ -1,0 +1,9 @@
+#ifndef KEYS_H
+#define KEYS_H
+
+enum KEYS
+{
+    KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_RETURN, KEY_ESCAPE, KEY_SPACE
+};
+
+#endif

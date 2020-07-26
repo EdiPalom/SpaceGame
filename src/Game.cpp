@@ -2,7 +2,7 @@
 #include <Game.hpp>
 #include <Globals.h>
 
-Game::Game()
+Game::Game():active(true)
 {
 
 }
@@ -46,6 +46,10 @@ void Game::update(double dt)
         case CHANGE_SCENE:
             EventManager::request_event(CHANGE_SCENE);
             state_machine.update_state(CHANGE_SCENE);
+            break;
+
+        case CLOSE:
+            active = false;
             break;
     }
 }

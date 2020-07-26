@@ -9,6 +9,7 @@
 #include <ResourceManager.hpp>
 #include <GameEvents.h>
 #include <Running.hpp>
+#include <Menu.hpp>
 
 // #include <GameStates.h>
 

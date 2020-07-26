@@ -14,9 +14,11 @@ class Game
         bool initialize();
         void update(double dt);
         void draw(Renderer *);
+        bool is_active(){return active;}
 
     private:
         StateMachine state_machine;
+        bool active;
 };
 
 #endif

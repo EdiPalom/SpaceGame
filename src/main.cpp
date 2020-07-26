@@ -7,6 +7,7 @@
 #include <Window.hpp>
 #include <Renderer.hpp>
 #include <ResourceManager.hpp>
+#include <Keyboard.hpp>
 
 // #include <Keyboard.hpp>
 
@@ -55,13 +56,22 @@ static void process_events(SDL_Event* event)
                     default: break;
 
                     case SDLK_ESCAPE:
-                        active = false;
+                        Keyboard::set_key(KEY_ESCAPE);
                         break;
 
                     case SDLK_RETURN:
-                        EventManager::set_event(FADE_IN_EVENT);
+                        Keyboard::set_key(KEY_RETURN);
+                        break;
+
+                    case SDLK_DOWN:
+                        Keyboard::set_key(KEY_DOWN);
+                        break;
+
+                    case SDLK_UP:
+                        Keyboard::set_key(KEY_UP);
                         break;
                 }
+                break;
         }
     }
 }
@@ -100,7 +110,7 @@ int main()
 
     SDL_Event event;
 
-    while(active)
+    while(game.is_active() && active)
     {
         current_time = SDL_GetTicks();
         delta_time = current_time - last_time;
@@ -127,7 +137,7 @@ int main()
 
         if(counter_time >= 1000)
         {
-            // std::cout << "APS: " << ups << " FPS: " << fps << std::endl;
+            std::cout << "APS: " << ups << " FPS: " << fps << std::endl;
             counter_time -= 1000;
             ups = 0;
             fps = 0;

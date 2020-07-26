@@ -20,7 +20,7 @@ void StateMachine::process_event()
             break;
 
         case State::MENU:
-            World::list.push_back(std::make_shared<Entity>(ResourceManager::get_texture("menu_play")->get_ptr()));
+            World::list.push_back(std::make_shared<Menu>());
         break;
 
         case State::FADE_IN_STATE:

@@ -24,9 +24,9 @@ class Entity
     protected:
         std::string name;
         bool visible;
+        SDL_Texture* texture;
 
     private:
-        SDL_Texture* texture;
         sf::Vector2f direction, position;
         SDL_Rect sprite;
 
