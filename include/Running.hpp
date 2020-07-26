@@ -8,7 +8,9 @@
 #include <Background.hpp>
 #include <Keyboard.hpp>
 #include <EventManager.hpp>
+
 #include <Player.hpp>
+#include <PlayerInputComponent.hpp>
 
 class Running:public Entity
 {

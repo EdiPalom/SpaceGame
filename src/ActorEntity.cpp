@@ -1,5 +1,3 @@
-
-
 #include <ActorEntity.hpp>
 
 ActorEntity::ActorEntity(SDL_Texture *texture, sf::Vector2i size, sf::Vector2f position, sf::Vector2f direction):Entity(texture,size,position,direction)

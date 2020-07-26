@@ -2,7 +2,7 @@
 
 #include <AttackEntity.hpp>
 
-AttackEntity::AttackEntity()
+AttackEntity::AttackEntity():b_shoot(false)
 {
     
 }

@@ -20,6 +20,8 @@ Entity::Entity(SDL_Texture *texture, sf::Vector2i size, sf::Vector2f position, s
     this->direction = direction;
 
     this->texture = texture;
+
+    this->name = "undefined";
 }
 
 void Entity::update(double dt)
