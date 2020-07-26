@@ -21,6 +21,12 @@ class Entity
         void draw(Renderer *);
         virtual void update_current(double dt){};
 
+        void set_position(sf::Vector2f position){this->position = position;}
+        void set_direction(sf::Vector2f direction){this->direction = direction;}
+        
+        sf::Vector2f get_position(){return this->position;}
+        sf::Vector2f get_direction(){return this->direction;}
+
     protected:
         std::string name;
         bool visible;

@@ -15,8 +15,11 @@ Background::Background(std::string texture_name, float speed)
     for(int i = 0; i <= y; ++i)
         for(int j = 0; j <= x; ++j)
         {
-            std::shared_ptr<Entity> background = std::make_shared<Entity>(tile->get_ptr(), tile_size, sf::Vector2f(i * tile_size.x, j * tile_size.y), sf::Vector2f(0,1));
-            
+            std::shared_ptr<ActorEntity> background = std::make_shared<ActorEntity>(tile->get_ptr(), tile_size, sf::Vector2f(i * tile_size.x, j * tile_size.y), sf::Vector2f(0,1));
+
+            background->add_component(std::make_shared<Movable>(sf::Vector2f(0, speed)));
+            background->add_component(std::make_shared<BackgroundMovement>());
+
             World::list.push_back(background);
         }
 }

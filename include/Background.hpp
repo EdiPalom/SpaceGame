@@ -3,9 +3,13 @@
 #ifndef BACKGROUND_H
 #define BACKGROUND_H
 
-#include <Entity.hpp>
+// #include <Entity.hpp>
+#include <ActorEntity.hpp>
 #include <ResourceManager.hpp>
 #include <World.hpp>
+
+#include <Movable.hpp>
+#include <BackgroundMovement.hpp>
 
 class Background
 {
