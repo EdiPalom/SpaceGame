@@ -10,6 +10,7 @@
 #include <EntityAnimated.hpp>
 #include <World.hpp>
 #include <MoveX.hpp>
+#include <PlanetAnimation.hpp>
 
 class Menu:public Entity
 {

@@ -10,11 +10,11 @@ EntityAnimated::EntityAnimated(SDL_Texture *texture, sf::Vector2f position, sf::
 
 void EntityAnimated::start_animation()
 {
-    // std::shared_ptr<EntityComponent> component = this->get_component("animation").lock();
-    // if(component)
-    // {
-    //     component->start_animation();
-    // }
+    std::shared_ptr<EntityComponent> component = this->get_component("animation").lock();
+    if(component)
+    {
+        component->start_animation();
+    }
 }
 
 

@@ -18,6 +18,8 @@ class ActorEntity: public Entity
 
         void add_component(const std::shared_ptr<EntityComponent>&);
 
+        std::weak_ptr<EntityComponent> get_component(std::string type) const;
+
     protected:
 
 

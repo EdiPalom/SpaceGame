@@ -22,3 +22,15 @@ void ActorEntity::add_component(const std::shared_ptr<EntityComponent>& componen
 {
     components[component->s_type] = component;
 }
+
+std::weak_ptr <EntityComponent> ActorEntity::get_component(std::string type) const
+{
+    auto it = components.find(type);
+
+    if(it != components.end())
+    {
+        std::weak_ptr<EntityComponent> component(it->second);
+        return component;
+    }else
+        return std::weak_ptr<EntityComponent>{};
+}

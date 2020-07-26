@@ -9,19 +9,21 @@ Menu::Menu():Entity(ResourceManager::get_texture("menu_play")->get_ptr())
     sf::Vector2i sheet_size = ResourceManager::get_texture("planet1")->get_size();
 
     this->planet1 = std::make_shared<EntityAnimated>(ResourceManager::get_texture("planet1")->get_ptr(),position,size);
-    // planet1->add_component(std::make_shared<PlanetAnimation>(size, sheet_size));
+    this->planet1->add_component(std::make_shared<PlanetAnimation>(size, sheet_size));
 
     size = sf::Vector2i(175,175);
     position = sf::Vector2f(WINDOW_WIDTH+66, 120);
     sheet_size = ResourceManager::get_texture("planet2")->get_size();
 
     this->planet2 = std::make_shared<EntityAnimated>(ResourceManager::get_texture("planet2")->get_ptr(),position,size);
+    this->planet2->add_component(std::make_shared<PlanetAnimation>(size, sheet_size));
 
     size = sf::Vector2i(350,350);
     position = sf::Vector2f(WINDOW_WIDTH, 295);
     sheet_size = ResourceManager::get_texture("earth")->get_size();
 
     this->earth = std::make_shared<EntityAnimated>(ResourceManager::get_texture("earth")->get_ptr(),position,size);
+    this->earth->add_component(std::make_shared<PlanetAnimation>(size, sheet_size));
 
     World::list.push_back(this->planet1);
     World::list.push_back(this->planet2);
@@ -34,7 +36,8 @@ Menu::Menu():Entity(ResourceManager::get_texture("menu_play")->get_ptr())
 
 void Menu::update_current(double dt)
 {
-    handle_input();
+    if(!Keyboard::stack.empty())
+        handle_input();
     handle_graphics();
 }
 
@@ -55,6 +58,10 @@ void Menu::handle_graphics()
 
 void Menu::handle_input()
 {
+    this->planet1->start_animation();
+    this->planet2->start_animation();
+    this->earth->start_animation();
+
     switch(Keyboard::get_key())     
     {
         default: break;
