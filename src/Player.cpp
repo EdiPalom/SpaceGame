@@ -4,6 +4,7 @@
 Player::Player():ActorEntity(ResourceManager::get_texture("player")->get_ptr(),sf::Vector2i(115,87),sf::Vector2f(WINDOW_WIDTH/2, WINDOW_HEIGHT * 0.8))
 {
     this->sprite.y = 173;
+    this->type = PLAYER;
     this->name = "Player";
 }
 

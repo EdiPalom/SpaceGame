@@ -14,6 +14,7 @@ bool Game::initialize()
 
 void Game::update(double dt)
 {
+    remove_entities();
 
     for(long unsigned int i = 0; i < World::root.size(); ++i)
     {
@@ -56,7 +57,6 @@ void Game::update(double dt)
 
 void Game::draw(Renderer *renderer)
 {
-
     for(long unsigned int i = 0; i < World::root.size(); ++i)
     {
         if(!World::root[i]) continue;
@@ -74,4 +74,19 @@ void Game::draw(Renderer *renderer)
 
     // renderer->draw(ResourceManager::get_texture("menu"),&srcrect,&dstrect);
     // renderer->draw(ResourceManager::get_texture("menu"),NULL,&dstrect);
+}
+
+void Game::remove_entities()
+{
+    std::vector<std::shared_ptr<Entity>>::iterator it = World::list.begin();
+    while(it != World::list.end())
+    {
+        if((*it)->get_destroy()) 
+        {
+            World::list.erase(it);
+        }else
+        {
+            ++it;
+        }
+    }
 }

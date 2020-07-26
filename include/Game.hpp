@@ -15,6 +15,7 @@ class Game
         void update(double dt);
         void draw(Renderer *);
         bool is_active(){return active;}
+        void remove_entities();
 
     private:
         StateMachine state_machine;

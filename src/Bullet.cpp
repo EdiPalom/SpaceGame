@@ -23,6 +23,8 @@ Bullet::Bullet(ENTITY_TYPE source,sf::Vector2f position):ActorEntity(ResourceMan
 
 void Bullet::update_current(double dt)
 {
+    ActorEntity::update_current(dt);
+
     if(this->position.y <= 0 || this->position.y >= WINDOW_HEIGHT)
         this->b_destroy = true;
 }
