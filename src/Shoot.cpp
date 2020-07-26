@@ -1,6 +1,6 @@
 #include <Shoot.hpp>
 
-Shoot::Shoot(AttackEntity* actor,float f_speed, float m_shoot):power(0.f),fire_speed(f_speed),min_shoot(m_shoot),max_power(200.0f)
+Shoot::Shoot(AttackEntity* actor,float f_speed, float m_shoot):power(0.f),max_power(200.0f),fire_speed(f_speed),min_shoot(m_shoot)
 {
    s_type = "shoot";
    _actor = actor;

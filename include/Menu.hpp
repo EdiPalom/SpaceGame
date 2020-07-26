@@ -7,6 +7,8 @@
 #include <ResourceManager.hpp>
 #include <Keyboard.hpp>
 #include <EventManager.hpp>
+#include <EntityAnimated.hpp>
+#include <World.hpp>
 
 class Menu:public Entity
 {
@@ -22,6 +24,9 @@ class Menu:public Entity
        void handle_graphics();
        void increment_state();
        void decrement_state();
+
+    private:
+       std::shared_ptr<EntityAnimated> planet1, planet2, earth;
 };
 
 #endif

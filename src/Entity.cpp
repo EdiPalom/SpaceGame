@@ -22,6 +22,8 @@ Entity::Entity(SDL_Texture *texture, sf::Vector2i size, sf::Vector2f position, s
     this->texture = texture;
 
     this->name = "undefined";
+
+    // SDL_SetTextureAlphaMod(texture, 255);
 }
 
 void Entity::update(double dt)
@@ -41,6 +43,11 @@ void Entity::draw(Renderer *renderer)
 
         renderer->draw(this->texture, &sprite, &dstrect);
     }
+}
+
+void Entity::set_alpha(uint8_t alpha)
+{
+    SDL_SetTextureAlphaMod(texture, alpha);
 }
 
 

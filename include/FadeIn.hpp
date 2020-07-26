@@ -5,6 +5,7 @@
 
 #include <Entity.hpp>
 #include <EventManager.hpp>
+#include <World.hpp>
 
 class FadeIn:public Entity
 {
@@ -14,8 +15,10 @@ class FadeIn:public Entity
         void update_current(double dt) override;
 
     private:
-        double time;
-        int life_time;
+        double time, mod_alpha, counter_time;
+        int life_time, counter;
+        uint8_t alpha;
+
 };
 
 #endif

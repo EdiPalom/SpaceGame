@@ -91,6 +91,9 @@ static bool load_resources(Renderer* renderer)
     success = ResourceManager::load_texture("assets/images/stars_big.png","back_big", true, renderer->created);
     success = ResourceManager::load_texture("assets/images/red_ship.png","player", true, renderer->created);
     success = ResourceManager::load_texture("assets/images/sheet3.png","sheet", true, renderer->created);
+    success = ResourceManager::load_texture("assets/images/Planet1.png","planet1", true, renderer->created);
+    success = ResourceManager::load_texture("assets/images/Planet2.png","planet2", true, renderer->created);
+    success = ResourceManager::load_texture("assets/images/Earth.png","earth", true, renderer->created);
 
     return success;
 }
@@ -139,7 +142,7 @@ int main()
 
         if(counter_time >= 1000)
         {
-            std::cout << "APS: " << ups << " FPS: " << fps << std::endl;
+            // std::cout << "APS: " << ups << " FPS: " << fps << std::endl;
             counter_time -= 1000;
             ups = 0;
             fps = 0;

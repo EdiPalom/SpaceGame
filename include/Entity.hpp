@@ -26,6 +26,7 @@ class Entity
         void set_direction(sf::Vector2f direction){this->direction = direction;}
         void set_atlas_position(sf::Vector2i position){this->sprite.x = position.x; this->sprite.y = position.y;}
         void set_destroy(bool status){b_destroy = status;}
+        void set_alpha(uint8_t alpha);
         
         sf::Vector2f get_position(){return this->position;}
         sf::Vector2f get_direction(){return this->direction;}
