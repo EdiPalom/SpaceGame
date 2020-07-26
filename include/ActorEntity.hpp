@@ -12,7 +12,7 @@
 class ActorEntity: public Entity
 {
     public:
-        ActorEntity(SDL_Texture *texture, sf::Vector2i size, sf::Vector2f position, sf::Vector2f direction);
+        ActorEntity(SDL_Texture *texture, sf::Vector2i size, sf::Vector2f position, sf::Vector2f direction = sf::Vector2f(0,0));
         
         void update_current(double dt) override;
 

@@ -8,6 +8,7 @@
 #include <Background.hpp>
 #include <Keyboard.hpp>
 #include <EventManager.hpp>
+#include <Player.hpp>
 
 class Running:public Entity
 {

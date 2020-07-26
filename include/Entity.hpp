@@ -31,10 +31,11 @@ class Entity
         std::string name;
         bool visible;
         SDL_Texture* texture;
-
-    private:
         sf::Vector2f direction, position;
         SDL_Rect sprite;
+
+    private:
+
 
 };
 
