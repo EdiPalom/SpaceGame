@@ -9,6 +9,7 @@
 #include <EventManager.hpp>
 #include <EntityAnimated.hpp>
 #include <World.hpp>
+#include <MoveX.hpp>
 
 class Menu:public Entity
 {

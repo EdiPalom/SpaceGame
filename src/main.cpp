@@ -142,7 +142,7 @@ int main()
 
         if(counter_time >= 1000)
         {
-            // std::cout << "APS: " << ups << " FPS: " << fps << std::endl;
+            std::cout << "APS: " << ups << " FPS: " << fps << std::endl;
             counter_time -= 1000;
             ups = 0;
             fps = 0;
