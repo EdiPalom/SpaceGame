@@ -8,6 +8,7 @@
 #include <FadeIn.hpp>
 #include <ResourceManager.hpp>
 #include <GameEvents.h>
+#include <Running.hpp>
 
 // #include <GameStates.h>
 

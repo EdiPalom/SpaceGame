@@ -22,9 +22,9 @@ class ResourceManager
 
     public:
         static bool load_texture(std::string path, std::string name, bool alpha, SDL_Renderer* renderer);
-        static SDL_Texture* get_texture(std::string name);
+        static Texture* get_texture(std::string name);
         static void free_memory();
-        static sf::Vector2i get_texture_size(std::string name){return m_Textures[name]->get_size();}
+        // static sf::Vector2i get_texture_size(std::string name){return m_Textures[name]->get_size();}
 
     private:
         // static std::map<std::string, SDL_Texture *> m_Textures;

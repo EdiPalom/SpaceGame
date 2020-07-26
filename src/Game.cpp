@@ -14,6 +14,13 @@ bool Game::initialize()
 
 void Game::update(double dt)
 {
+
+    for(long unsigned int i = 0; i < World::root.size(); ++i)
+    {
+        if(!World::root[i]) continue;
+        World::root[i]->update(dt);
+    }
+
     for(long unsigned int i = 0; i < World::list.size(); ++i)
     {
         if(!World::list[i]) continue;
@@ -45,6 +52,13 @@ void Game::update(double dt)
 
 void Game::draw(Renderer *renderer)
 {
+
+    for(long unsigned int i = 0; i < World::root.size(); ++i)
+    {
+        if(!World::root[i]) continue;
+        World::root[i]->draw(renderer);
+    }
+
     for(long unsigned int i = 0; i < World::list.size(); ++i)
     {
         if(!World::list[i]) continue;

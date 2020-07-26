@@ -21,13 +21,15 @@ void ResourceManager::free_memory()
     }
 }
 
-SDL_Texture* ResourceManager::get_texture(std::string name)
+Texture* ResourceManager::get_texture(std::string name)
 {
     auto it = m_Textures.find(name);
     if(it != m_Textures.end())
-        return it->second->get_ptr();
-
-    //TODO: return an empty texture;
+        return it->second.get();
+    else
+    {
+        //TODO: return an empty texture;
+    }
 }
 
 bool ResourceManager::load_texture(std::string path, std::string name, bool alpha, SDL_Renderer *renderer)

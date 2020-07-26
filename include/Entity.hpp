@@ -8,13 +8,14 @@
 
 #include <Vector2.hpp>
 #include <Renderer.hpp>
+#include <Globals.h>
 
 class Entity
 {
     public:
         Entity(std::string name);
 
-        Entity(SDL_Texture *texture,bool is_visible = false, sf::Vector2i size = sf::Vector2i(0,0), sf::Vector2f position = sf::Vector2f(0,0));
+        Entity(SDL_Texture *texture, sf::Vector2i size = sf::Vector2i(WINDOW_WIDTH,WINDOW_HEIGHT), sf::Vector2f position = sf::Vector2f(0,0), sf::Vector2f direction = sf::Vector2f(0,0));
 
         void update(double dt);
         void draw(Renderer *);
@@ -22,12 +23,13 @@ class Entity
 
     protected:
         std::string name;
+        bool visible;
 
     private:
         SDL_Texture* texture;
         sf::Vector2f direction, position;
         SDL_Rect sprite;
-        bool visible;
+
 };
 
 #endif

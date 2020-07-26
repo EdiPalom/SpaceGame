@@ -11,6 +11,7 @@
 class World
 {
     public:
+        static std::vector<std::shared_ptr<Entity>> root;
         static std::vector<std::shared_ptr<Entity>> list;
         static void free_memory();
 };

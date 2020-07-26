@@ -3,7 +3,7 @@
 #include <FadeIn.hpp>
 #include <ResourceManager.hpp>
 
-FadeIn::FadeIn(int limit):Entity(ResourceManager::get_texture("menu")),time(0),life_time(limit)
+FadeIn::FadeIn(int limit):Entity(ResourceManager::get_texture("menu")->get_ptr()),time(0),life_time(limit)
 {
     this->name = "Fade in";
 }
