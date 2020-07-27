@@ -16,7 +16,7 @@ void StateMachine::process_event()
         default: break;
 
         case State::INTRO:
-            World::list.push_back(std::make_shared<FadeIn>(5));
+            World::utils.push_back(std::make_shared<FadeIn>(5));
             break;
 
         case State::MENU:
@@ -24,11 +24,11 @@ void StateMachine::process_event()
         break;
 
         case State::FADE_IN_STATE:
-            World::list.push_back(std::make_shared<FadeIn>(1000));
+            World::utils.push_back(std::make_shared<FadeIn>(1000));
         break;
 
         case State::FADE_OUT_STATE:
-            World::list.push_back(std::make_shared<Entity>("Fade Out"));
+            World::utils.push_back(std::make_shared<Entity>("Fade Out"));
         break;
 
         case State::RUNNING:

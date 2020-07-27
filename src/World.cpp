@@ -4,6 +4,7 @@
 
 std::vector<std::shared_ptr<Entity>> World::root;
 std::vector<std::shared_ptr<Entity>> World::list;
+std::vector<std::shared_ptr<Entity>> World::utils;
 
 void World::free_memory()
 {
@@ -21,6 +22,11 @@ void World::set_alpha(uint8_t alpha)
     }
 
     //segmentation fault
+    for(std::vector<std::shared_ptr<Entity>>::iterator it = World::list.begin(); it!= World::list.end(); ++it )
+    {
+        (*it)->set_alpha(alpha);
+        // std::cout << (*it)->get_type() << std::endl;
+    }
     
     // std::vector<std::shared_ptr<Entity>>::iterator it;
     //

@@ -16,6 +16,12 @@ void Game::update(double dt)
 {
     remove_entities();
 
+    for(long unsigned int i = 0; i < World::utils.size(); ++i)
+    {
+        if(!World::utils[i]) continue;
+        World::utils[i]->update(dt);
+    }
+
     for(long unsigned int i = 0; i < World::root.size(); ++i)
     {
         if(!World::root[i]) continue;
@@ -84,6 +90,18 @@ void Game::remove_entities()
         if((*it)->get_destroy()) 
         {
             World::list.erase(it);
+        }else
+        {
+            ++it;
+        }
+    }
+
+    it = World::utils.begin();
+    while(it != World::utils.end())
+    {
+        if((*it)->get_destroy()) 
+        {
+            World::utils.erase(it);
         }else
         {
             ++it;

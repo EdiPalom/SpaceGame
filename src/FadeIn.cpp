@@ -30,5 +30,6 @@ void FadeIn::update_current(double dt)
         EventManager::set_event(CHANGE_SCENE);
 
         World::set_alpha(255);
+        this->b_destroy = true;
     }
 }
