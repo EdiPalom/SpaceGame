@@ -2,12 +2,15 @@
 
 #include <string>
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
 #include <Game.hpp>
 #include <Window.hpp>
 #include <Renderer.hpp>
 #include <ResourceManager.hpp>
 #include <Keyboard.hpp>
+#include <SoundEngine.hpp>
 
 // #include <Keyboard.hpp>
 
@@ -31,6 +34,7 @@ static void must_init(bool test, std::string description)
 
 static void free_resources()
 {
+    SoundEngine::free_memory();
     World::free_memory();
     ResourceManager::free_memory();
     SDL_Quit();
@@ -95,12 +99,22 @@ static bool load_resources(Renderer* renderer)
     success = ResourceManager::load_texture("assets/images/Planet2.png","planet2", true, renderer->created);
     success = ResourceManager::load_texture("assets/images/Earth.png","earth", true, renderer->created);
 
+    success = SoundEngine::load_music("assets/sounds/BlindShift.ogg");
+    success = SoundEngine::load_music("assets/sounds/Cybermatic.ogg");
+
+    success = SoundEngine::load_sound("assets/sounds/Accept.ogg");
+    success = SoundEngine::load_sound("assets/sounds/GUI_1.ogg");
+    success = SoundEngine::load_sound("assets/sounds/laser.ogg");
+
     return success;
 }
 
 int main()
 {
-    must_init(!SDL_Init(SDL_INIT_VIDEO), "SDL Library");
+    srand(time(NULL));
+    must_init(!SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO), "SDL Library");
+
+    must_init(SoundEngine::initialize(), "Sound Engine");
 
     Window window;
     must_init(window.created != NULL,"SDL Window");
@@ -114,6 +128,8 @@ int main()
     must_init(load_resources(&renderer),"Loading Resources");
 
     SDL_Event event;
+
+    SoundEngine::play_music("BlindShift",true);
 
     while(game.is_active() && active)
     {

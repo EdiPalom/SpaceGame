@@ -20,6 +20,7 @@ void StateMachine::process_event()
             break;
 
         case State::MENU:
+            SoundEngine::play_music("BlindShift",true);
             World::root.push_back(std::make_shared<Menu>());
         break;
 
@@ -32,6 +33,7 @@ void StateMachine::process_event()
         break;
 
         case State::RUNNING:
+                SoundEngine::play_music("Cybermatic",true);
                 World::root.push_back(std::make_shared<Running>());
         break;
     }

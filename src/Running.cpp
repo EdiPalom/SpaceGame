@@ -29,6 +29,7 @@ void Running::handle_input()
         default: break;
 
         case KEY_ESCAPE:
+            SoundEngine::play_sound("Accept");
             EventManager::set_event(FADE_IN_EVENT);
             break;
     }

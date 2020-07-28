@@ -62,25 +62,30 @@ void Menu::handle_input()
     this->planet2->start_animation();
     this->earth->start_animation();
 
+
     switch(Keyboard::get_key())     
     {
         default: break;
 
         case KEY_UP:
+            SoundEngine::play_sound("GUI_1");
             this->decrement_state();
             break;
 
         case KEY_DOWN:
+            SoundEngine::play_sound("GUI_1");
             this->increment_state();
             break;
         
         case KEY_ESCAPE:
+            SoundEngine::play_sound("GUI_1");
             state = State::EXIT;
             break;
 
         case KEY_RETURN:
             if(state == State::PLAY)
             {
+                SoundEngine::play_sound("Accept");
                 EventManager::set_event(FADE_IN_EVENT);
             }
             if(state == State::EXIT)
