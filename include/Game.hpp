@@ -5,6 +5,7 @@
 #include <StateMachine.hpp>
 #include <World.hpp>
 #include <EventManager.hpp>
+#include <PhysicsWorld.hpp>
 
 class Game
 {
@@ -20,6 +21,7 @@ class Game
     private:
         StateMachine state_machine;
         bool active;
+        PhysicsWorld physics;
 };
 
 #endif

@@ -14,6 +14,8 @@
 class Entity
 {
     public:
+        static uint16_t p_layer;
+    
         Entity(std::string name);
 
         Entity(SDL_Texture *texture, sf::Vector2i size = sf::Vector2i(WINDOW_WIDTH,WINDOW_HEIGHT), sf::Vector2f position = sf::Vector2f(0,0), sf::Vector2f direction = sf::Vector2f(0,0));
@@ -33,6 +35,9 @@ class Entity
         sf::Vector2f get_size(){return sf::Vector2f(sprite.w, sprite.h);}
         bool get_destroy(){return b_destroy;}
         ENTITY_TYPE get_type(void){return type;}
+        uint16_t get_id(){return this->id;}
+
+        static uint16_t get_random_color();
 
     protected:
         std::string name;
@@ -42,6 +47,8 @@ class Entity
         SDL_Rect sprite;
         bool b_destroy;
         ENTITY_TYPE type;
+        uint16_t id;
+
 
     private:
 

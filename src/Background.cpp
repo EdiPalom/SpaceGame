@@ -20,6 +20,6 @@ Background::Background(std::string texture_name, float speed)
             background->add_component(std::make_shared<Movable>(sf::Vector2f(0, speed)));
             background->add_component(std::make_shared<BackgroundMovement>());
 
-            World::list.push_back(background);
+            World::layer1.push_back(background);
         }
 }

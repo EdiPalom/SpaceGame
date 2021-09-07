@@ -4,6 +4,7 @@
 #define RENDERER_H
 
 #include <SDL2/SDL.h>
+#include <Globals.h>
 
 class Renderer
 {
@@ -15,10 +16,12 @@ class Renderer
         void present();
         void draw(SDL_Texture* texture, const SDL_Rect* srcrect, const SDL_Rect* dstrect);
 
-        SDL_Renderer *created;
-        
+        void draw(SDL_Surface*);
 
+        SDL_Renderer *renderer;
+        
     private:
+    SDL_Texture *texture;
 
 };
 

@@ -21,17 +21,20 @@ class StateMachine
     public:
 
         StateMachine();
+        ~StateMachine();
 
         enum class State : char {
-            INTRO, MENU, FADE_IN_STATE, FADE_OUT_STATE, RUNNING
-        } state = State::INTRO;
+            INTRO = 0, MENU, FADE_IN_STATE, FADE_OUT_STATE, RUNNING
+        };
 
         void process_event();
         void update_state(int new_state);
+        StateMachine::State get_state(){return this->state;}
 
     private:
 
         State prev_state;
+        State state;
         
         void keep_state();
 };

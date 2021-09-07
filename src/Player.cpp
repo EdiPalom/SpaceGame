@@ -6,6 +6,7 @@ Player::Player():ActorEntity(ResourceManager::get_texture("player")->get_ptr(),s
     this->sprite.y = 173;
     this->type = PLAYER;
     this->name = "Player";
+    this->id = Entity::get_random_color();
 }
 
 void Player::update_current(double dt)

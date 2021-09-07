@@ -14,27 +14,12 @@ bool Game::initialize()
 
 void Game::update(double dt)
 {
-    remove_entities();
+    World::update(dt);
 
-    for(long unsigned int i = 0; i < World::utils.size(); ++i)
-    {
-        if(!World::utils[i]) continue;
-        World::utils[i]->update(dt);
-    }
+    if(state_machine.get_state() == StateMachine::State::RUNNING)
+        physics.update();
 
-    for(long unsigned int i = 0; i < World::root.size(); ++i)
-    {
-        if(!World::root[i]) continue;
-        World::root[i]->update(dt);
-    }
-
-    for(long unsigned int i = 0; i < World::list.size(); ++i)
-    {
-        if(!World::list[i]) continue;
-        World::list[i]->update(dt);
-    }
-
-    // std::cout << World::list.size() << std::endl;
+    //std::cout << World::list.size() << std::endl;
 
     switch(EventManager::event.front())
     {
@@ -63,18 +48,9 @@ void Game::update(double dt)
 
 void Game::draw(Renderer *renderer)
 {
-    for(long unsigned int i = 0; i < World::root.size(); ++i)
-    {
-        if(!World::root[i]) continue;
-        World::root[i]->draw(renderer);
-    }
+    //World::draw(renderer);
+    physics.draw(renderer);
 
-    for(long unsigned int i = 0; i < World::list.size(); ++i)
-    {
-        if(!World::list[i]) continue;
-        World::list[i]->draw(renderer);
-    }
-    //
     // SDL_Rect srcrect = {0,0,WINDOW_WIDTH,WINDOW_HEIGHT};
     // SDL_Rect dstrect = {0,0,WINDOW_WIDTH,WINDOW_HEIGHT};
 
@@ -82,29 +58,3 @@ void Game::draw(Renderer *renderer)
     // renderer->draw(ResourceManager::get_texture("menu"),NULL,&dstrect);
 }
 
-void Game::remove_entities()
-{
-    std::vector<std::shared_ptr<Entity>>::iterator it = World::list.begin();
-    while(it != World::list.end())
-    {
-        if((*it)->get_destroy()) 
-        {
-            World::list.erase(it);
-        }else
-        {
-            ++it;
-        }
-    }
-
-    it = World::utils.begin();
-    while(it != World::utils.end())
-    {
-        if((*it)->get_destroy()) 
-        {
-            World::utils.erase(it);
-        }else
-        {
-            ++it;
-        }
-    }
-}

@@ -2,12 +2,14 @@
 #include <StateMachine.hpp>
 #include <iostream>
 
-StateMachine::StateMachine()
+StateMachine::StateMachine():state(State::INTRO)
 {
     process_event();
     // state = State::MENU;
     prev_state = state;
 }
+
+StateMachine::~StateMachine(){}
 
 void StateMachine::process_event()
 {
