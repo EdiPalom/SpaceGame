@@ -26,7 +26,7 @@ void Shoot::update(Entity &actor, double dt)
             // m_position.y = actor.get_position().y + (actor.get_size().y / 2);
             // if(actor.get_type() == PLAYER)   
             //     SoundEngine::play(SoundEngine::shoot);
-            std::shared_ptr<Bullet> bullet = std::make_shared<Bullet>(actor.get_type(),m_position);
+            std::shared_ptr<Bullet> bullet = std::make_shared<Bullet>(actor.get_type(),m_position,actor.get_id());
             bullet->add_component(std::make_shared<Movable>(sf::Vector2f(0,BULLET_SPEED)));
             World::list.push_back(bullet);
             this->power = 0;

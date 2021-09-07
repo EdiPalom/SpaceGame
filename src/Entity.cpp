@@ -28,6 +28,11 @@ Entity::Entity(SDL_Texture *texture, sf::Vector2i size, sf::Vector2f position, s
 
     this->id = p_layer;
 
+    this->body_size = sf::Vector2f(0.5 * sprite.w, 0.5 * sprite.h);
+    //    this->body_d = sf::Vector2f(0.5*(this->sprite.w - this->body_size.x),0.5*(this->sprite.h - this->body_size.y));
+
+    this->body_d = sf::Vector2f(0.5 * this->body_size.x,0.5 * this->body_size.y);
+
     // SDL_SetTextureAlphaMod(texture, 255);
 }
 

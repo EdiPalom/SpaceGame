@@ -17,11 +17,11 @@ class Renderer
         void draw(SDL_Texture* texture, const SDL_Rect* srcrect, const SDL_Rect* dstrect);
 
         void draw(SDL_Surface*);
-
-        SDL_Renderer *renderer;
+        SDL_Renderer* get_ptr(){return this->renderer;}
         
     private:
-    SDL_Texture *texture;
+        SDL_Renderer *renderer;    
+        SDL_Texture *texture;
 
 };
 

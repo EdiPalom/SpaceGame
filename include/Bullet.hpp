@@ -10,7 +10,7 @@
 class Bullet:public ActorEntity
 {
     public:
-        Bullet(ENTITY_TYPE source,sf::Vector2f position);
+    Bullet(ENTITY_TYPE source,sf::Vector2f position,uint16_t id);
         void update_current(double dt)override;
 };
 

@@ -82,22 +82,22 @@ static void process_events(SDL_Event* event)
 
 
 
-static bool load_resources(Renderer* renderer)
+static bool load_resources(SDL_Renderer* renderer)
 {
     bool success = true;
 
-    success = ResourceManager::load_texture("assets/images/background.png","background", true, renderer->created);
-    success = ResourceManager::load_texture("assets/images/menu.png","menu", true, renderer->created);
-    success = ResourceManager::load_texture("assets/images/menu_play.png","menu_play", true, renderer->created);
-    success = ResourceManager::load_texture("assets/images/menu_exit.png","menu_exit", true, renderer->created);
-    success = ResourceManager::load_texture("assets/images/stars_small.png","back_small", true, renderer->created);
-    success = ResourceManager::load_texture("assets/images/stars_medium.png","back_medium", true, renderer->created);
-    success = ResourceManager::load_texture("assets/images/stars_big.png","back_big", true, renderer->created);
-    success = ResourceManager::load_texture("assets/images/red_ship.png","player", true, renderer->created);
-    success = ResourceManager::load_texture("assets/images/sheet3.png","sheet", true, renderer->created);
-    success = ResourceManager::load_texture("assets/images/Planet1.png","planet1", true, renderer->created);
-    success = ResourceManager::load_texture("assets/images/Planet2.png","planet2", true, renderer->created);
-    success = ResourceManager::load_texture("assets/images/Earth.png","earth", true, renderer->created);
+    success = ResourceManager::load_texture("assets/images/background.png","background", true, renderer);
+    success = ResourceManager::load_texture("assets/images/menu.png","menu", true, renderer);
+    success = ResourceManager::load_texture("assets/images/menu_play.png","menu_play", true, renderer);
+    success = ResourceManager::load_texture("assets/images/menu_exit.png","menu_exit", true, renderer);
+    success = ResourceManager::load_texture("assets/images/stars_small.png","back_small", true, renderer);
+    success = ResourceManager::load_texture("assets/images/stars_medium.png","back_medium", true, renderer);
+    success = ResourceManager::load_texture("assets/images/stars_big.png","back_big", true, renderer);
+    success = ResourceManager::load_texture("assets/images/red_ship.png","player", true, renderer);
+    success = ResourceManager::load_texture("assets/images/sheet3.png","sheet", true, renderer);
+    success = ResourceManager::load_texture("assets/images/Planet1.png","planet1", true, renderer);
+    success = ResourceManager::load_texture("assets/images/Planet2.png","planet2", true, renderer);
+    success = ResourceManager::load_texture("assets/images/Earth.png","earth", true, renderer);
 
     success = SoundEngine::load_music("assets/sounds/BlindShift.ogg");
     success = SoundEngine::load_music("assets/sounds/Cybermatic.ogg");
@@ -120,12 +120,12 @@ int main()
     must_init(window.created != NULL,"SDL Window");
 
     Renderer renderer(window.get_ptr());
-    must_init(renderer.created != NULL, "SDL Renderer");
+    must_init(renderer.get_ptr() != NULL, "SDL Renderer");
 
     Game game;
     must_init(game.initialize(), "Game App");
 
-    must_init(load_resources(&renderer),"Loading Resources");
+    must_init(load_resources(renderer.get_ptr()),"Loading Resources");
 
     SDL_Event event;
 

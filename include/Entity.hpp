@@ -33,6 +33,9 @@ class Entity
         sf::Vector2f get_position(){return this->position;}
         sf::Vector2f get_direction(){return this->direction;}
         sf::Vector2f get_size(){return sf::Vector2f(sprite.w, sprite.h);}
+        sf::Vector2f get_body(){return body_size;}
+    sf::Vector2f get_body_position(){return sf::Vector2f(this->position.x + this->body_d.x, this->position.y + this->body_d.y);}
+    
         bool get_destroy(){return b_destroy;}
         ENTITY_TYPE get_type(void){return type;}
         uint16_t get_id(){return this->id;}
@@ -51,7 +54,8 @@ class Entity
 
 
     private:
-
+        sf::Vector2f body_size;
+        sf::Vector2f body_d;
 
 
 

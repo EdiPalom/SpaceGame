@@ -24,6 +24,13 @@ void World::set_alpha(uint8_t alpha)
         World::root[i]->set_alpha(alpha);
     }
 
+    for(long unsigned int i = 0; i < World::layer1.size(); ++i)
+    {
+        if(!World::layer1[i])continue;
+
+        World::layer1[i]->set_alpha(alpha);
+    }
+
     //segmentation fault
     for(std::vector<std::shared_ptr<Entity>>::iterator it = World::list.begin(); it!= World::list.end(); ++it )
     {

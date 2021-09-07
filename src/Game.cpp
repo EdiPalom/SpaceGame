@@ -48,8 +48,8 @@ void Game::update(double dt)
 
 void Game::draw(Renderer *renderer)
 {
-    //World::draw(renderer);
-    physics.draw(renderer);
+    World::draw(renderer);
+    //physics.draw(renderer);
 
     // SDL_Rect srcrect = {0,0,WINDOW_WIDTH,WINDOW_HEIGHT};
     // SDL_Rect dstrect = {0,0,WINDOW_WIDTH,WINDOW_HEIGHT};
