@@ -98,7 +98,9 @@ static bool load_resources(SDL_Renderer* renderer)
     success = ResourceManager::load_texture("assets/images/Planet1.png","planet1", true, renderer);
     success = ResourceManager::load_texture("assets/images/Planet2.png","planet2", true, renderer);
     success = ResourceManager::load_texture("assets/images/Earth.png","earth", true, renderer);
-    success = ResourceManager::load_texture("assets/images/player_life.png","player_life", true, renderer);    
+    success = ResourceManager::load_texture("assets/images/player_life.png","player_life", true, renderer);
+
+    success = ResourceManager::load_texture("assets/images/game_over.png","game_over", true, renderer);        
 
     success = SoundEngine::load_music("assets/sounds/BlindShift.ogg");
     success = SoundEngine::load_music("assets/sounds/Cybermatic.ogg");

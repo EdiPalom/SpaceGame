@@ -15,6 +15,11 @@ void World::free_memory()
     World::utils.clear();
 }
 
+void World::free_list()
+{
+    World::list.clear();
+}
+
 void World::set_alpha(uint8_t alpha)
 {
     for(long unsigned int i = 0; i < World::root.size(); ++i)

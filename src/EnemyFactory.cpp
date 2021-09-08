@@ -45,7 +45,7 @@ std::shared_ptr<Enemy> EnemyFactory::create_enemy(sf::Vector2f position,sf::Vect
 
         enemy->set_position(m_position);
         //enemy->add_component(std::make_shared<Movable>(sf::Vector2f(ENEMY_SPEED,ENEMY_SPEED)));
-        enemy->add_component(std::make_shared<Shoot>(enemy.get(),8,200));
+        enemy->add_component(std::make_shared<Shoot>(enemy.get(),9,200));
         enemy->add_component(std::make_shared<EnemyInput>(enemy.get()));
 
         return enemy;

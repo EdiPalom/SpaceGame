@@ -17,6 +17,8 @@ class World
         static std::vector<std::shared_ptr<Entity>> list;
         static std::vector<std::shared_ptr<Entity>> utils;
 
+    static void free_list();
+
         static void free_memory();
         static void set_alpha(uint8_t alpha);
     static void update(double);

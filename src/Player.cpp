@@ -27,6 +27,7 @@ void Player::set_collision(bool c)
     if(this->life == 0)
     {
         this->b_destroy = true;
+        EventManager::set_event(GAME_OVER_EVENT);
     }
 }
 

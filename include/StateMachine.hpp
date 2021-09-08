@@ -10,6 +10,7 @@
 #include <GameEvents.h>
 #include <Running.hpp>
 #include <Menu.hpp>
+#include <GameOver.hpp>
 
 // #include <GameStates.h>
 
@@ -23,18 +24,18 @@ class StateMachine
         StateMachine();
         ~StateMachine();
 
-        enum class State : char {
-            INTRO = 0, MENU, FADE_IN_STATE, FADE_OUT_STATE, RUNNING
+        enum{
+            INTRO = 0, MENU, FADE_IN_STATE, FADE_OUT_STATE, RUNNING, GAMEOVER
         };
 
         void process_event();
         void update_state(int new_state);
-        StateMachine::State get_state(){return this->state;}
+        uint8_t get_state(){return this->state;}
 
     private:
 
-        State prev_state;
-        State state;
+        uint8_t prev_state;
+        uint8_t state;
         
         void keep_state();
 };

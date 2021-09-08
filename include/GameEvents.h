@@ -10,7 +10,7 @@ enum EVENT
     FADE_IN_EVENT,
     FADE_OUT_EVENT,
     RUNNING_EVENT,
-    
+    GAME_OVER_EVENT,
 };
 
 #endif

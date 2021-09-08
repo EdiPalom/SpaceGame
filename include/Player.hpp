@@ -9,6 +9,8 @@
 #include <World.hpp>
 #include <Timer.hpp>
 #include <SoundEngine.hpp>
+#include <GameEvents.h>
+#include <EventManager.hpp>
 
 class Player:public ActorEntity, public AttackEntity
 {

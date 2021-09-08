@@ -16,7 +16,7 @@ void Game::update(double dt)
 {
     World::update(dt);
 
-    if(state_machine.get_state() == StateMachine::State::RUNNING)
+    if(state_machine.get_state() == StateMachine::RUNNING)
         physics.update();
 
     //std::cout << World::list.size() << std::endl;
@@ -43,6 +43,11 @@ void Game::update(double dt)
         case CLOSE:
             active = false;
             break;
+
+    case GAME_OVER_EVENT:
+        EventManager::request_event(GAME_OVER_EVENT);
+        state_machine.update_state(GAME_OVER_EVENT);
+        break;
     }
 }
 
