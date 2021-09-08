@@ -8,6 +8,7 @@
 //
 const int WINDOW_WIDTH = 700;
 const int WINDOW_HEIGHT = 700;
+const int HALF = WINDOW_WIDTH / 2;
 
 //No DT
 const float ENEMY_SPEED = 4;

@@ -40,6 +40,8 @@ class Entity
         ENTITY_TYPE get_type(void){return type;}
         uint16_t get_id(){return this->id;}
 
+        void set_collision(bool c){this->collision = c;}
+
         static uint16_t get_random_color();
 
     protected:
@@ -56,6 +58,7 @@ class Entity
     private:
         sf::Vector2f body_size;
         sf::Vector2f body_d;
+        bool collision;
 
 
 

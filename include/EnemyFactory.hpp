@@ -15,7 +15,8 @@ class EnemyFactory
         // EnemyFactory();
         // ~EnemyFactory();
 
-        static void create(sf::Vector2f position, int limit);
+        static void create(sf::Vector2f position,sf::Vector2f direction, int limit);
+    static std::shared_ptr<Enemy> create_enemy(sf::Vector2f position,sf::Vector2f direction,int i);
 };
 
 #endif

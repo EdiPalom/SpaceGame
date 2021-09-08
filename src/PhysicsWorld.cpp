@@ -23,7 +23,7 @@ void PhysicsWorld::update()
     for(std::vector<std::shared_ptr<Entity>>::iterator it = World::list.begin(); it != World::list.end(); ++it)
     {
         if(this->get_collision((*it)->get_body_position(),(*it)->get_body(),(*it)->get_id())){
-                          (*it)->set_destroy(true);
+                          (*it)->set_collision(true);
         }
     }
 
