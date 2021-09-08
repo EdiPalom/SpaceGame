@@ -15,7 +15,24 @@ Running::Running():Entity(ResourceManager::get_texture("background")->get_ptr())
     World::list.push_back(player);
 
     int e_limit = 7;
-    EnemyFactory::create(sf::Vector2f(0,20),sf::Vector2f(1,0),e_limit);
+    EnemyFactory::create(sf::Vector2f(0,30),sf::Vector2f(1,0),e_limit);
+
+    sf::Vector2f p_position = sf::Vector2f(30,5);
+    std::shared_ptr<Entity> plife = std::make_shared<Entity>(ResourceManager::get_texture("player_life")->get_ptr(),ResourceManager::get_texture("player_life")->get_size(),p_position);
+    plife->set_name("plife1");
+    World::list.push_back(plife);
+
+    std::shared_ptr<Entity> plife2 = std::make_shared<Entity>(*plife);
+    plife2->set_position(sf::Vector2f(p_position.x + 30,p_position.y));
+    plife2->set_name("plife2");
+    World::list.push_back(plife2);
+
+    std::shared_ptr<Entity> plife3 = std::make_shared<Entity>(*plife);
+    plife3->set_position(sf::Vector2f(p_position.x + 60,p_position.y));
+    plife3->set_name("plife3");
+    World::list.push_back(plife3);
+
+    //World::remove_entity("plife1");
 }
 
 void Running::update_current(double dt)

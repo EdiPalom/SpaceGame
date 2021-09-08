@@ -50,6 +50,21 @@ void World::set_alpha(uint8_t alpha)
     // }
 }
 
+void World::remove_entity(std::string name)
+{
+    std::vector<std::shared_ptr<Entity>>::iterator it = World::list.begin();
+    while(it != World::list.end())
+    {
+        if(!(*it)->get_name().compare(name)) 
+        {
+            World::list.erase(it);
+        }else
+        {
+            ++it;
+        }
+    }
+}
+
 void World::update(double dt)
 {
     World::remove_entities();

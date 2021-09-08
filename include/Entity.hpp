@@ -24,11 +24,12 @@ class Entity
         void draw(Renderer *);
         virtual void update_current(double dt){};
 
-        void set_position(sf::Vector2f position){this->position = position;}
+    void set_position(sf::Vector2f position){this->position = position;}
         void set_direction(sf::Vector2f direction){this->direction = direction;}
         void set_atlas_position(sf::Vector2i position){this->sprite.x = position.x; this->sprite.y = position.y;}
         void set_destroy(bool status){b_destroy = status;}
         void set_alpha(uint8_t alpha);
+    void set_name(std::string name){this->name = name;}
         
         sf::Vector2f get_position(){return this->position;}
         sf::Vector2f get_direction(){return this->direction;}
@@ -40,7 +41,9 @@ class Entity
         ENTITY_TYPE get_type(void){return type;}
         uint16_t get_id(){return this->id;}
 
-        void set_collision(bool c){this->collision = c;}
+    std::string get_name(){return this->name;}
+
+        virtual void set_collision(bool c){this->b_destroy = c;}
 
         static uint16_t get_random_color();
 
@@ -54,14 +57,9 @@ class Entity
         ENTITY_TYPE type;
         uint16_t id;
 
-
     private:
         sf::Vector2f body_size;
         sf::Vector2f body_d;
-        bool collision;
-
-
-
 };
 
 #endif

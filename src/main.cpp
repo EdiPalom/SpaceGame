@@ -98,6 +98,7 @@ static bool load_resources(SDL_Renderer* renderer)
     success = ResourceManager::load_texture("assets/images/Planet1.png","planet1", true, renderer);
     success = ResourceManager::load_texture("assets/images/Planet2.png","planet2", true, renderer);
     success = ResourceManager::load_texture("assets/images/Earth.png","earth", true, renderer);
+    success = ResourceManager::load_texture("assets/images/player_life.png","player_life", true, renderer);    
 
     success = SoundEngine::load_music("assets/sounds/BlindShift.ogg");
     success = SoundEngine::load_music("assets/sounds/Cybermatic.ogg");
@@ -105,6 +106,7 @@ static bool load_resources(SDL_Renderer* renderer)
     success = SoundEngine::load_sound("assets/sounds/Accept.ogg");
     success = SoundEngine::load_sound("assets/sounds/GUI_1.ogg");
     success = SoundEngine::load_sound("assets/sounds/laser.ogg");
+    success = SoundEngine::load_sound("assets/sounds/metal.ogg");    
 
     return success;
 }

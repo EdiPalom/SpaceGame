@@ -29,7 +29,7 @@ class Menu:public Entity
        void decrement_state();
 
     private:
-       std::shared_ptr<EntityAnimated> planet1, planet2, earth;
+    std::shared_ptr<EntityAnimated> planet1,planet2, earth;
 };
 
 #endif

@@ -22,6 +22,8 @@ class World
     static void update(double);
     static void draw(Renderer*);
     static void remove_entities();
+
+    static void remove_entity(std::string);
 };
 
 #endif

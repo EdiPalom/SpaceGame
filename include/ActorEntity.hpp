@@ -15,6 +15,7 @@ class ActorEntity: public Entity
         ActorEntity(SDL_Texture *texture, sf::Vector2i size, sf::Vector2f position, sf::Vector2f direction = sf::Vector2f(0,0));
         
         void update_current(double dt) override;
+    //    void set_collision(bool c) override;
 
         void add_component(const std::shared_ptr<EntityComponent>&);
 
