@@ -32,7 +32,14 @@ Running::Running():Entity(ResourceManager::get_texture("background")->get_ptr())
     plife3->set_name("plife3");
     World::list.push_back(plife3);
 
+
+
     //World::remove_entity("plife1");
+}
+
+Running::~Running()
+{
+
 }
 
 void Running::update_current(double dt)

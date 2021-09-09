@@ -2,7 +2,7 @@ CXX=g++
 
 # CXXFLAGS=-I"include"
 # CFLAGS=-Wall
-LDLIBS=-lSDL2 -lm -lSDL2_mixer
+LDLIBS=-lSDL2 -lm -lSDL2_mixer -lSDL2_ttf
 LDFLAGS = -L/usr/lib
 OPTS:=-Wall
 # APP_BIN = bin/app/

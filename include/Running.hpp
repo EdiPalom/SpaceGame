@@ -19,9 +19,12 @@ class Running:public Entity
 {
     public:
         Running();
+        ~Running();
 
         void update_current(double dt) override;
         void handle_input();
+
+
 };
 
 #endif

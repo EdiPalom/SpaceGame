@@ -5,6 +5,8 @@
 #include <ctime>
 #include <cstdlib>
 
+#include <SDL2/SDL_ttf.h>
+
 #include <Game.hpp>
 #include <Window.hpp>
 #include <Renderer.hpp>
@@ -37,6 +39,7 @@ static void free_resources()
     SoundEngine::free_memory();
     World::free_memory();
     ResourceManager::free_memory();
+    TTF_Quit();
     SDL_Quit();
 }
 
@@ -118,6 +121,8 @@ int main()
     srand(time(NULL));
     must_init(!SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO), "SDL Library");
 
+    must_init(TTF_Init()!=-1,"TTF Library");
+
     must_init(SoundEngine::initialize(), "Sound Engine");
 
     Window window;
@@ -126,7 +131,7 @@ int main()
     Renderer renderer(window.get_ptr());
     must_init(renderer.get_ptr() != NULL, "SDL Renderer");
 
-    Game game;
+    Game game(&renderer);
     must_init(game.initialize(), "Game App");
 
     must_init(load_resources(renderer.get_ptr()),"Loading Resources");
