@@ -20,5 +20,8 @@ En desarrollo
 - GIMP: editor de imágenes
 
 ## Recursos 
-- OpenGameArt [a link](https://opengameart.org/)
+- OpenGameArt [link](https://opengameart.org/)
+
+## Licencia
+GNU General Public License, version 2
 
